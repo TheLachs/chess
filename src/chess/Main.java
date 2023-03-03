@@ -7,7 +7,15 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Heelo");
+		Figure[][] chessboard = {{new Rook(), new Horse(), new Bishop(), new Queen(), new King(), new Bishop(), new Horse(), new Rook()},
+								 {new Pawn("black", new Position(0, 2)), new Pawn("black", new Position(0, 2)),  new Pawn("black", new Position(0, 2)),   new Pawn("black", new Position(0, 2)),  new Pawn("black", new Position(0, 2)), new Pawn("black", new Position(0, 2)),   new Pawn("black", new Position(0, 2)),  new Pawn("black", new Position(0, 2))},
+								 {null,       null,        null,         null,        null,       null,         null,        null      },
+								 {null,       null,        null,         null,        null,       null,         null,        null      },
+								 {null,       null,        null,         null,        null,       null,         null,        null      },
+								 {null,       null,        null,         null,        null,       null,         null,        null      },
+								 {new Pawn("black", new Position(0, 2)), new Pawn("black", new Position(0, 2)),  new Pawn("black", new Position(0, 2)),   new Pawn("black", new Position(0, 2)),  new Pawn("black", new Position(0, 2)), new Pawn("black", new Position(0, 2)),   new Pawn("black", new Position(0, 2)),  new Pawn("black", new Position(0, 2))},
+								 {new Rook(), new Horse(), new Bishop(), new Queen(), new King(), new Bishop(), new Horse(), new Rook()},
+								 };
 
 	}
 
