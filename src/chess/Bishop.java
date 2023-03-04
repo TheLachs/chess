@@ -9,9 +9,8 @@ public class Bishop implements Figure{
 	}
 
 	@Override
-	public boolean setPos(Position pos) {
+	public void setPos(Position pos) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -21,9 +20,9 @@ public class Bishop implements Figure{
 	}
 
 	@Override
-	public String getColor() {
+	public int getColor() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
@@ -39,18 +38,30 @@ public class Bishop implements Figure{
 	}
 
 	@Override
-	public boolean isKing() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean isInCheck() throws InvalidFigureException {
 		throw new InvalidFigureException();
 	}
 
 	@Override
 	public boolean isChecking() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setBoard(Figure[][] board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isKing(int color) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean inBoard(Position pos) {
 		// TODO Auto-generated method stub
 		return false;
 	}

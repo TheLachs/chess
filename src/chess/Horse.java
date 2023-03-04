@@ -9,9 +9,8 @@ public class Horse implements Figure{
 	}
 
 	@Override
-	public boolean setPos(Position pos) {
+	public void setPos(Position pos) {
 		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override
@@ -21,9 +20,9 @@ public class Horse implements Figure{
 	}
 
 	@Override
-	public String getColor() {
+	public int getColor() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class Horse implements Figure{
 	}
 
 	@Override
-	public boolean isKing() {
+	public boolean isKing(int color) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -51,6 +50,18 @@ public class Horse implements Figure{
 
 	@Override
 	public boolean isChecking() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void setBoard(Figure[][] board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean inBoard(Position pos) {
 		// TODO Auto-generated method stub
 		return false;
 	}

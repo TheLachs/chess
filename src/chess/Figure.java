@@ -2,13 +2,15 @@ package chess;
 
 public interface Figure {
 	public Position getPos();
-	public boolean setPos(Position pos);
+	public void setPos(Position pos);
 	public int getValue();
-	public String getColor();
+	public int getColor(); //-1 black, 1 white
 	public boolean isValidMove(Position pos);
 	public boolean isCaptured();
-	public boolean isKing();
+	public boolean isKing(int color);
 	public boolean isInCheck() throws InvalidFigureException;
 	public boolean isChecking();
+	public void setBoard(Figure[][] board);
+	boolean inBoard(Position pos);
 	
 }
