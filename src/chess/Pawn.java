@@ -6,6 +6,13 @@ public class Pawn implements Figure {
 	private Position pos;
 	private boolean captured;
 	private Figure[][] board;
+	private boolean firstmove;
+	
+	// maybe use set or list of all possible moves
+	// naive algorithm tries for every pos on board if it would be a legal move?
+	
+	// Also promoting and enpassent is still missing
+	
 	
 	Pawn(int color, Position pos){
 		if (!(color == -1 || color == 1)){
@@ -17,6 +24,7 @@ public class Pawn implements Figure {
 		this.color = color;
 		this.pos = pos;
 		this.captured = false;
+		this.firstmove = true;
 	}
 	
 	@Override
@@ -42,10 +50,12 @@ public class Pawn implements Figure {
 	@Override
 	public boolean isValidMove(Position goTo) {
 		if (inBoard(goTo)) {
-			if (goTo.getY() == pos.getY() + 1*color) {
+			if (goTo.getY() == pos.getY() + 1*color || (firstmove && goTo.getY() == pos.getY() + 2*color)) {
+				
 				if (goTo.getX() == pos.getX()) {
 					if (board[goTo.getX()][goTo.getY()] == null) return true;
 				}else {
+					if (goTo.getY() == pos.getY() + 2*color) return false;
 					if (board[goTo.getX()][goTo.getY()] != null && board[goTo.getX()][goTo.getY()].getColor() != color) return true;
 				}
 			}
@@ -101,7 +111,7 @@ public class Pawn implements Figure {
 	}
 
 	@Override
-	public boolean inBoard(Position pos) {
+	public boolean inBoard(Position pos) { // maybe create super class abstract piece because a lot of figures share same methods!
 		if (pos.getX() <8 && pos.getX()>=0 && pos.getY()<8 && pos.getY()>= 0) {
 			return true;
 		}
