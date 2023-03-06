@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Chessboard480.png</name>
+			<type>1</type>
+			<location>C:/Users/Max/git/chess/Chessboard480.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

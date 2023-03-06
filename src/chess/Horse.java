@@ -1,40 +1,56 @@
 package chess;
 
 public class Horse implements Figure{
+	private int color;
+	private final int VALUE = 3;
+	private Position pos;
+	private boolean captured;
+	private Figure[][] board;
+	
+	public Horse(int color, Position pos) {
+		if (!(color == -1 || color == 1)){
+			throw new IllegalArgumentException();
+		}
+		if (!inBoard(pos)) {
+			throw new IllegalArgumentException();
+		}
+		this.color = color;
+		this.pos = pos;
+		this.captured = false;
+	}
 
 	@Override
 	public Position getPos() {
-		// TODO Auto-generated method stub
-		return null;
+		return pos;
 	}
 
 	@Override
 	public void setPos(Position pos) {
-		// TODO Auto-generated method stub
+		this.pos = pos;
 	}
 
 	@Override
 	public int getValue() {
-		// TODO Auto-generated method stub
-		return 0;
+		return VALUE;
 	}
 
 	@Override
 	public int getColor() {
-		// TODO Auto-generated method stub
-		return 0;
+		return color;
 	}
 
 	@Override
 	public boolean isValidMove(Position pos) {
-		// TODO Auto-generated method stub
-		return false;
+		if (inBoard(pos)) {
+			if ((Math.abs(this.pos.getX()-pos.getX()) == 1 && Math.abs(this.pos.getY()-pos.getY()) == 2 )|| (Math.abs(this.pos.getX()-pos.getX()) == 2 && Math.abs(this.pos.getY()-pos.getY()) == 1 )) {
+				if (board[pos.getX()][pos.getY()] == null || board[pos.getX()][pos.getY()].getColor() != color) return true;
+			}
+		}return false;
 	}
 
 	@Override
 	public boolean isCaptured() {
-		// TODO Auto-generated method stub
-		return false;
+		return captured;
 	}
 
 	@Override
@@ -50,19 +66,24 @@ public class Horse implements Figure{
 
 	@Override
 	public boolean isChecking() {
-		// TODO Auto-generated method stub
-		return false;
+		for (Figure[] boardrow : board) {
+			for (Figure boardpos: boardrow) {
+				if (boardpos != null && boardpos.isKing(color*-1) && isValidMove(boardpos.getPos())) return true;
+			}
+			
+		}return false;
 	}
 
 	@Override
 	public void setBoard(Figure[][] board) {
-		// TODO Auto-generated method stub
-		
+		this.board = board;
 	}
 
 	@Override
 	public boolean inBoard(Position pos) {
-		// TODO Auto-generated method stub
+		if (pos.getX() <8 && pos.getX()>=0 && pos.getY()<8 && pos.getY()>= 0) {
+			return true;
+		}
 		return false;
 	}
 
