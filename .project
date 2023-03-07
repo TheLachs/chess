@@ -16,6 +16,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>.settings</name>
+			<type>2</type>
+			<location>C:/Users/Max/git/chess/.settings</location>
+		</link>
+		<link>
 			<name>Chessboard480.png</name>
 			<type>1</type>
 			<location>C:/Users/Max/git/chess/Chessboard480.png</location>

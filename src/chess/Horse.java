@@ -60,7 +60,7 @@ public class Horse implements Figure{
 	}
 
 	@Override
-	public boolean isInCheck() throws InvalidFigureException {
+	public int isInCheck() throws InvalidFigureException {
 		throw new InvalidFigureException();
 	}
 
@@ -85,6 +85,11 @@ public class Horse implements Figure{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean willBeInCheck(Position pos) throws InvalidFigureException {
+		throw new InvalidFigureException();
 	}
 
 }

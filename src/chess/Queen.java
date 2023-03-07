@@ -44,7 +44,7 @@ public class Queen implements Figure{
 	}
 
 	@Override
-	public boolean isInCheck() throws InvalidFigureException {
+	public int isInCheck() throws InvalidFigureException {
 		throw new InvalidFigureException();
 	}
 
@@ -64,6 +64,11 @@ public class Queen implements Figure{
 	public boolean inBoard(Position pos) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public boolean willBeInCheck(Position pos) throws InvalidFigureException {
+		throw new InvalidFigureException();
 	}
 
 }

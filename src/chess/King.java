@@ -44,8 +44,15 @@ public class King implements Figure{
 
 	@Override
 	public boolean isValidMove(Position pos) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			if (!willBeInCheck(pos) && inBoard(pos)) {
+				if (board[pos.getX()][pos.getY()] == null || board[pos.getX()][pos.getY()].getColor() != color) {
+					if (Math.abs(pos.getX() - this.pos.getX() )<=1 && Math.abs(pos.getY() - this.pos.getY())<=1)return true;
+				}
+			}return false;
+		} catch (InvalidFigureException e) {
+			return false;
+		}
 	}
 
 	@Override
@@ -59,15 +66,20 @@ public class King implements Figure{
 	}
 
 	@Override
-	public boolean isInCheck() throws InvalidFigureException {
-		
+	public int isInCheck() throws InvalidFigureException {
+		int counter = 0;
+		for (Figure[] boardrows : board) {
+			for (Figure piece : boardrows) {
+				if(piece != null && piece .getColor() != color && piece.isValidMove(pos)) counter++;
+			}
+		}return counter;
 		// Idea: Go through every Piece on the board of other color and check if pos of king is a legal move.
 		// maybe also change method return number of checks, i explicit to check double checks for legal moves of player (can only move King) so
 		// for every piece except King return false for every move.
 		// new mwthod with a Position as Input to check if after a move the King ist still in check?
-		// what if piece that was checking would be captured, how do we accapt it as a leag move ? maybe if return value is one of this method and 
+		// what if piece that was checking would be captured, how do we accept it as a legal move ? maybe if return value is one of this method and 
 		//the piece to capture returns true for isChecking method?
-		return false;
+		
 	}
 
 	@Override
@@ -86,6 +98,15 @@ public class King implements Figure{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean willBeInCheck(Position pos) throws InvalidFigureException {
+		for (Figure[] boardrows : board) {
+			for (Figure piece : boardrows) {
+				if(piece != null && piece .getColor() != color && piece.isValidMove(pos)) return true;
+			}
+		}return false;
 	}
 
 }
